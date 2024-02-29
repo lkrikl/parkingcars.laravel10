@@ -21,6 +21,12 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard/cars', function () {
+    return view('cars');
+})->middleware(['auth', 'verified'])->name('cars');
+Route::get('/dashboard/parking', function () {
+    return view('parking');
+})->middleware(['auth', 'verified'])->name('parking');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
